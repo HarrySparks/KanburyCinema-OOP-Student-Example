@@ -23,8 +23,18 @@ namespace KanburyCinema
 
         private void DisplayData()
         {
-            Image movieImage = Image.FromFile("Movie Images\\" + movies[movieDisplayed].Name + ".jpg");
-            pictureBoxMovie.Image = movieImage;
+            try
+            {
+                Image movieImage = Image.FromFile("\\\\cgstorage.cityofbristol.ac.uk\\studata\\students\\700369\\My Pictures\\" + movies[movieDisplayed].Name + " image.jpg");
+                pictureBoxMovie.Image = movieImage;
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Image not found");
+            }
+
+            //pictureBoxMovie.Image = movieImage;
 
             textBoxName.Text = movies[movieDisplayed].Name;
             textBoxCertificate.Text = movies[movieDisplayed].Certificate;
@@ -36,11 +46,11 @@ namespace KanburyCinema
         private void Form1_Load(object sender, EventArgs e)
         {
             movies.Add(new Movie("Creed II", "12A", "Steven Caple Jr.", "Michael B. Jordan", 130));
-            movies.Add(new Move("A Star is Born", "15", "Bradley Cooper", "Lady Gaga", 136));
-            movies.Add(new Movie("Robin Hood", 12A, "Marc Forster", "Taron Egerton", 116));
-            movies.Add(new Movie("The Grinch", "U", "Peter Candeland", "Benedict Cumberbatch" 90));
-            movies.Add(new Movie("Aquaman", "12A", "James Wan", "Jason Momoa", 143);
-            movies.Add(mew Movie("Bohemian Rhapsody", "12A", "Bryan Singer", "Rami Malek", 134));
+            movies.Add(new Movie("A Star is Born", "15", "Bradley Cooper", "Lady Gaga", 136));
+            movies.Add(new Movie("Robin Hood", "12A", "Marc Forster", "Taron Egerton", 116));
+            movies.Add(new Movie("The Grinch", "U", "Peter Candeland", "Benedict Cumberbatch", 90));
+            movies.Add(new Movie("Aquaman", "12A", "James Wan", "Jason Momoa", 143));
+            movies.Add(new Movie("Bohemian Rhapsody", "12A", "Bryan Singer", "Rami Malek", 134));
 
             DisplayData();
         }
@@ -67,6 +77,11 @@ namespace KanburyCinema
             }
 
             DisplayData();
+        }
+
+        private void labelName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
